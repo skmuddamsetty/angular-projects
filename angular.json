@@ -2,5 +2,374 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "angular-material-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/angular-material-app",
+      "sourceRoot": "projects/angular-material-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/angular-material-app",
+            "index": "projects/angular-material-app/src/index.html",
+            "main": "projects/angular-material-app/src/main.ts",
+            "polyfills": "projects/angular-material-app/src/polyfills.ts",
+            "tsConfig": "projects/angular-material-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/angular-material-app/src/favicon.ico",
+              "projects/angular-material-app/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/angular-material-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/angular-material-app/src/environments/environment.ts",
+                  "with": "projects/angular-material-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "angular-material-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "angular-material-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "angular-material-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/angular-material-app/src/test.ts",
+            "polyfills": "projects/angular-material-app/src/polyfills.ts",
+            "tsConfig": "projects/angular-material-app/tsconfig.spec.json",
+            "karmaConfig": "projects/angular-material-app/karma.conf.js",
+            "assets": [
+              "projects/angular-material-app/src/favicon.ico",
+              "projects/angular-material-app/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/angular-material-app/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/angular-material-app/tsconfig.app.json",
+              "projects/angular-material-app/tsconfig.spec.json",
+              "projects/angular-material-app/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/angular-material-app/e2e/protractor.conf.js",
+            "devServerTarget": "angular-material-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "angular-material-app:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "reactive-angular-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/reactive-angular-app",
+      "sourceRoot": "projects/reactive-angular-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/reactive-angular-app",
+            "index": "projects/reactive-angular-app/src/index.html",
+            "main": "projects/reactive-angular-app/src/main.ts",
+            "polyfills": "projects/reactive-angular-app/src/polyfills.ts",
+            "tsConfig": "projects/reactive-angular-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/reactive-angular-app/src/favicon.ico",
+              "projects/reactive-angular-app/src/assets"
+            ],
+            "styles": [
+              "projects/reactive-angular-app/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/reactive-angular-app/src/environments/environment.ts",
+                  "with": "projects/reactive-angular-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "reactive-angular-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "reactive-angular-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "reactive-angular-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/reactive-angular-app/src/test.ts",
+            "polyfills": "projects/reactive-angular-app/src/polyfills.ts",
+            "tsConfig": "projects/reactive-angular-app/tsconfig.spec.json",
+            "karmaConfig": "projects/reactive-angular-app/karma.conf.js",
+            "assets": [
+              "projects/reactive-angular-app/src/favicon.ico",
+              "projects/reactive-angular-app/src/assets"
+            ],
+            "styles": [
+              "projects/reactive-angular-app/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/reactive-angular-app/tsconfig.app.json",
+              "projects/reactive-angular-app/tsconfig.spec.json",
+              "projects/reactive-angular-app/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/reactive-angular-app/e2e/protractor.conf.js",
+            "devServerTarget": "reactive-angular-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "reactive-angular-app:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "ecommerce-app-with-ngrx": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/ecommerce-app-with-ngrx",
+      "sourceRoot": "projects/ecommerce-app-with-ngrx/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ecommerce-app-with-ngrx",
+            "index": "projects/ecommerce-app-with-ngrx/src/index.html",
+            "main": "projects/ecommerce-app-with-ngrx/src/main.ts",
+            "polyfills": "projects/ecommerce-app-with-ngrx/src/polyfills.ts",
+            "tsConfig": "projects/ecommerce-app-with-ngrx/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ecommerce-app-with-ngrx/src/favicon.ico",
+              "projects/ecommerce-app-with-ngrx/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "projects/ecommerce-app-with-ngrx/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ecommerce-app-with-ngrx/src/environments/environment.ts",
+                  "with": "projects/ecommerce-app-with-ngrx/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ecommerce-app-with-ngrx:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ecommerce-app-with-ngrx:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ecommerce-app-with-ngrx:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ecommerce-app-with-ngrx/src/test.ts",
+            "polyfills": "projects/ecommerce-app-with-ngrx/src/polyfills.ts",
+            "tsConfig": "projects/ecommerce-app-with-ngrx/tsconfig.spec.json",
+            "karmaConfig": "projects/ecommerce-app-with-ngrx/karma.conf.js",
+            "assets": [
+              "projects/ecommerce-app-with-ngrx/src/favicon.ico",
+              "projects/ecommerce-app-with-ngrx/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "projects/ecommerce-app-with-ngrx/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ecommerce-app-with-ngrx/tsconfig.app.json",
+              "projects/ecommerce-app-with-ngrx/tsconfig.spec.json",
+              "projects/ecommerce-app-with-ngrx/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ecommerce-app-with-ngrx/e2e/protractor.conf.js",
+            "devServerTarget": "ecommerce-app-with-ngrx:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ecommerce-app-with-ngrx:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "angular-material-app"
 }
