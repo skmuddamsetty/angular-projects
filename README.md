@@ -41,3 +41,7 @@ ng generate module heroes/heroes --module app --flat --routing --project=project
 ## Generate a component in a project
 
 ng g c heroes/componentname --project=projectname
+
+## Generate store in a module for a project
+
+ng g @ngrx/schematics:store auth/auth --module auth.module.ts --project=ecommerce-app-with-ngrx
