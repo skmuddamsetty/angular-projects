@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { AppState } from './reducers';
 import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
-import { stat } from 'fs';
+import { isLoggedIn, isLoggedOut } from './auth/auth.selectors';
 
 @Component({
   selector: 'app-root',
@@ -18,8 +17,15 @@ export class AppComponent implements OnInit {
   constructor(private store: Store<AppState>) {}
 
   ngOnInit() {
-    this.isLoggedIn$ = this.store.pipe(map((state) => !!state['auth'].user));
-    this.isLoggedOut$ = this.store.pipe(map((state) => !state['auth'].user));
+    // map can be used along with distinctUntilChanged operator to eliminate duplicates
+    // this.isLoggedIn$ = this.store.pipe(map((state) => !!state['auth'].user));
+    // this.isLoggedOut$ = this.store.pipe(map((state) => !state['auth'].user));
+    // select eliminates the issue of duplicate values and reaching out to the view each time something changes in the store
+    // this.isLoggedIn$ = this.store.pipe(select((state) => !!state['auth'].user));
+    // this.isLoggedOut$ = this.store.pipe(select((state) => !state['auth'].user));
+    // using selectors i.e memoized functions
+    this.isLoggedIn$ = this.store.pipe(select(isLoggedIn));
+    this.isLoggedOut$ = this.store.pipe(select(isLoggedOut));
   }
 
   logout() {}
