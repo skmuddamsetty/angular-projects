@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatListModule } from '@angular/material/list';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductsModule } from './products/products.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     MatProgressSpinnerModule,
     MatListModule,
+    ProductsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

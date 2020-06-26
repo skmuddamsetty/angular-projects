@@ -33,3 +33,11 @@ ng generate application ecommerce-app-with-ngrx
 ## Add library to a project
 
 ng add @angular/material --project=projectname
+
+## Generate a module in a project
+
+ng generate module heroes/heroes --module app --flat --routing --project=projectname
+
+## Generate a component in a project
+
+ng g c heroes/componentname --project=projectname
