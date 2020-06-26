@@ -19,7 +19,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private auth: AuthService,
-    private router: Router
+    private router: Router,
+    private store: Store
   ) {
     this.form = fb.group({
       email: ['test@angular-university.io', [Validators.required]],
@@ -29,5 +30,16 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {}
 
-  login() {}
+  login() {
+    const val = this.form.value;
+    this.auth
+      .login(val.email, val.password)
+      .pipe(
+        tap((user) => {
+          console.log(user);
+          this.router.navigateByUrl('/product-center');
+        })
+      )
+      .subscribe(noop, () => alert('Login Failed!'));
+  }
 }
