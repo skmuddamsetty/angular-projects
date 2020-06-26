@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "start:ecomm": "ng serve --project=ecommerce-app-with-ngrx"
+    "start:ecomm": "./node_modules/.bin/ng serve  --proxy-config ./proxy.json --project=ecommerce-app-with-ngrx",
+    "server:ecomm": "./node_modules/.bin/ts-node -P ./projects/ecommerce-app-with-ngrx/server/server.tsconfig.json ./projects/ecommerce-app-with-ngrx/server/server.ts"
   },
   "private": true,
   "dependencies": {
