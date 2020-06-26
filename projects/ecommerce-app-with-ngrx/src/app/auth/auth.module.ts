@@ -20,7 +20,7 @@ import * as fromAuth from './reducers';
     MatCardModule,
     MatInputModule,
     MatButtonModule,
-    StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.reducers),
+    StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.authReducer),
   ],
 })
 export class AuthModule {}
