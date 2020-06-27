@@ -5,6 +5,10 @@
         <mat-icon>list</mat-icon>
         <span>Products</span>
       </a>
+      <a mat-list-item routerLink="/admin-center" *ngIf="isUserAdmin$ | async">
+        <mat-icon>list</mat-icon>
+        <span>Admin Center</span>
+      </a>
 
       <a mat-list-item routerLink="/login" *ngIf="isLoggedOut$ | async">
         <mat-icon>account_circle</mat-icon>

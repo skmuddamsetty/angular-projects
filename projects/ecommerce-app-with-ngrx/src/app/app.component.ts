@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { AppState } from './reducers';
 import { Observable } from 'rxjs';
-import { isLoggedIn, isLoggedOut } from './auth/auth.selectors';
+import { isLoggedIn, isLoggedOut, isUserAdmin } from './auth/auth.selectors';
 import { logout, login } from './auth/auth.actions';
 
 @Component({
@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   title = 'ecommerce app with NGRX';
   isLoggedIn$: Observable<boolean>;
   isLoggedOut$: Observable<boolean>;
+  isUserAdmin$: Observable<boolean>;
   constructor(private store: Store<AppState>) {}
 
   ngOnInit() {
@@ -32,6 +33,7 @@ export class AppComponent implements OnInit {
     // using selectors i.e memoized functions
     this.isLoggedIn$ = this.store.pipe(select(isLoggedIn));
     this.isLoggedOut$ = this.store.pipe(select(isLoggedOut));
+    this.isUserAdmin$ = this.store.pipe(select(isUserAdmin));
   }
 
   logout() {

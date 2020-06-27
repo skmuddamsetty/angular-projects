@@ -15,3 +15,8 @@ export const isLoggedOut = createSelector(
   isLoggedIn,
   (isLoggedIn) => !isLoggedIn
 );
+
+export const isUserAdmin = createSelector(
+  selectAuthState,
+  (auth) => auth.user && auth.user.isAdmin
+);
