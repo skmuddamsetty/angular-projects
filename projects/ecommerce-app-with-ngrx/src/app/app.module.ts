@@ -17,7 +17,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { reducers, metaReducers } from './reducers';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { EntityDataModule } from '@ngrx/data';
 import { entityConfig } from './entity-metadata';
 import { EffectsModule } from '@ngrx/effects';
@@ -52,7 +52,10 @@ import { EffectsModule } from '@ngrx/effects';
     }),
     // adding effects module to the application
     EffectsModule.forRoot([]),
-    // StoreRouterConnectingModule.forRoot(),
+    StoreRouterConnectingModule.forRoot({
+      stateKey: 'router',
+      routerState: RouterState.Minimal,
+    }),
     // EntityDataModule.forRoot(entityConfig),
   ],
   providers: [],
