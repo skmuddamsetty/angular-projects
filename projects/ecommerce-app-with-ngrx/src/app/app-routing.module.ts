@@ -15,6 +15,12 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
+    path: 'admin-center',
+    loadChildren: () =>
+      import('./admin/admin.module').then((m) => m.AdminModule),
+    canActivate: [AuthGuard],
+  },
+  {
     path: '**',
     redirectTo: '/',
   },

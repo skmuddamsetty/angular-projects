@@ -21,6 +21,7 @@ import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { EntityDataModule } from '@ngrx/data';
 import { entityConfig } from './entity-metadata';
 import { EffectsModule } from '@ngrx/effects';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -56,6 +57,7 @@ import { EffectsModule } from '@ngrx/effects';
       stateKey: 'router',
       routerState: RouterState.Minimal,
     }),
+    AdminModule,
     // EntityDataModule.forRoot(entityConfig),
   ],
   providers: [],
