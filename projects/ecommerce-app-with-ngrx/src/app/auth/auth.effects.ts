@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, ofType, createEffect } from '@ngrx/effects';
 import { AuthActions } from './action-types';
 import { tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthEffects {
@@ -19,7 +20,19 @@ export class AuthEffects {
     { dispatch: false }
   );
 
-  constructor(private actions$: Actions) {
+  logout$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(AuthActions.logout),
+        tap((action) => {
+          localStorage.removeItem('user');
+          this.router.navigateByUrl('/login');
+        })
+      ),
+    { dispatch: false }
+  );
+
+  constructor(private actions$: Actions, private router: Router) {
     // example of how we can cause a side effect, but the below method is not safe because we do not have type safety when accessing the user property from action, and we are repeating the action type name that is '[Login Page] User Login'
     // these problems can be overcome by doing the steps given for login$
     // actions$.subscribe((action) => {

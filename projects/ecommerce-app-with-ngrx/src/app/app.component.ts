@@ -3,7 +3,7 @@ import { Store, select } from '@ngrx/store';
 import { AppState } from './reducers';
 import { Observable } from 'rxjs';
 import { isLoggedIn, isLoggedOut } from './auth/auth.selectors';
-import { logout } from './auth/auth.actions';
+import { logout, login } from './auth/auth.actions';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +18,11 @@ export class AppComponent implements OnInit {
   constructor(private store: Store<AppState>) {}
 
   ngOnInit() {
+    // restoring the state after browser refresh
+    const userProfile = localStorage.getItem('user');
+    if (userProfile) {
+      this.store.dispatch(login({ user: JSON.parse(userProfile) }));
+    }
     // map can be used along with distinctUntilChanged operator to eliminate duplicates
     // this.isLoggedIn$ = this.store.pipe(map((state) => !!state['auth'].user));
     // this.isLoggedOut$ = this.store.pipe(map((state) => !state['auth'].user));
