@@ -10,6 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { StoreModule } from '@ngrx/store';
 import * as fromAuth from './reducers';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -22,5 +23,6 @@ import * as fromAuth from './reducers';
     MatButtonModule,
     StoreModule.forFeature(fromAuth.authFeatureKey, fromAuth.authReducer),
   ],
+  providers: [AuthGuard],
 })
 export class AuthModule {}
