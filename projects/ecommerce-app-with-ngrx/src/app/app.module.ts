@@ -20,6 +20,7 @@ import { reducers, metaReducers } from './reducers';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { EntityDataModule } from '@ngrx/data';
 import { entityConfig } from './entity-metadata';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -49,6 +50,8 @@ import { entityConfig } from './entity-metadata';
       maxAge: 25,
       logOnly: environment.production,
     }),
+    // adding effects module to the application
+    EffectsModule.forRoot([]),
     // StoreRouterConnectingModule.forRoot(),
     // EntityDataModule.forRoot(entityConfig),
   ],
