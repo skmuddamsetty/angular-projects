@@ -6,7 +6,7 @@ import { loginUser } from './auth.route';
 import { saveCourse } from './save-course.route';
 import { createCourse } from './create-course.route';
 import { deleteCourse } from './delete-course.route';
-import { getAllProducts } from './get-products.route';
+import { getAllProducts, getAllUsers } from './get-products.route';
 
 const bodyParser = require('body-parser');
 
@@ -29,6 +29,7 @@ app.route('/api/courses/:courseUrl').get(getCourseByUrl);
 app.route('/api/lessons').get(searchLessons);
 
 app.route('/api/products').get(getAllProducts);
+app.route('/api/users').get(getAllUsers);
 
 const httpServer: any = app.listen(9000, () => {
   console.log(
