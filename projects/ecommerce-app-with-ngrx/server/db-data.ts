@@ -25,6 +25,12 @@ export const PRODUCTS: any = {
     title: 'Apple Watch',
     price: 249.99,
   },
+  3: {
+    id: 25,
+    seqNo: 2,
+    title: 'Sonos',
+    price: 249.99,
+  },
 };
 
 export const COURSES: any = {

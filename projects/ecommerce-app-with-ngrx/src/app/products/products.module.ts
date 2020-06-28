@@ -11,6 +11,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { ProductsResolver } from './products.resolver';
 import { EffectsModule } from '@ngrx/effects';
 import { ProductEffects } from './products.effects';
+import { StoreModule } from '@ngrx/store';
+import * as fromProducts from './reducers';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,10 @@ import { ProductEffects } from './products.effects';
     MatToolbarModule,
     ProductsRoutingModule,
     EffectsModule.forFeature([ProductEffects]),
+    StoreModule.forFeature(
+      fromProducts.productsFeatureKey,
+      fromProducts.coursesReducer
+    ),
   ],
   providers: [ProductsResolver],
 })
