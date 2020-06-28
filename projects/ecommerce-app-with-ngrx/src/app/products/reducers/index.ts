@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { Product } from '../product';
+import { Product, compareProducts } from '../product';
 import { EntityState, createEntityAdapter } from '@ngrx/entity';
 import { ProductActions } from '../action-types';
 
@@ -7,7 +7,9 @@ export const productsFeatureKey = 'products';
 
 export interface ProductsState extends EntityState<Product> {}
 
-export const adapter = createEntityAdapter<Product>();
+export const adapter = createEntityAdapter<Product>({
+  sortComparer: compareProducts,
+});
 
 export const initialProductsState = adapter.getInitialState();
 

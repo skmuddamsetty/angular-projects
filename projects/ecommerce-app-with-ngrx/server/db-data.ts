@@ -21,12 +21,12 @@ export const PRODUCTS: any = {
   },
   2: {
     id: 2,
-    seqNo: 2,
+    seqNo: 3,
     title: 'Apple Watch',
     price: 249.99,
   },
   3: {
-    id: 25,
+    id: 3,
     seqNo: 2,
     title: 'Sonos',
     price: 249.99,
