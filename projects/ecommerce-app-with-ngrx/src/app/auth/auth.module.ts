@@ -13,6 +13,7 @@ import * as fromAuth from './reducers';
 import { AuthGuard } from './auth.guard';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './auth.effects';
+import { AdminGuard } from './admin.guard';
 
 @NgModule({
   declarations: [LoginComponent],
@@ -27,6 +28,6 @@ import { AuthEffects } from './auth.effects';
     // Here we are using forFeature to add side effects specific to this module
     EffectsModule.forFeature([AuthEffects]),
   ],
-  providers: [AuthGuard],
+  providers: [AuthGuard, AdminGuard],
 })
 export class AuthModule {}
