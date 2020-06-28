@@ -12,6 +12,21 @@ export const USERS = {
   },
 };
 
+export const PRODUCTS: any = {
+  1: {
+    id: 1,
+    seqNo: 1,
+    title: 'MacBook Pro',
+    price: 1299.49,
+  },
+  2: {
+    id: 2,
+    seqNo: 2,
+    title: 'Apple Watch',
+    price: 249.99,
+  },
+};
+
 export const COURSES: any = {
   4: {
     id: 4,

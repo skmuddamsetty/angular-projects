@@ -1,11 +1,11 @@
 import { Request, Response } from 'express';
-import { COURSES } from './db-data';
+import { COURSES, PRODUCTS } from './db-data';
 
-export function getAllCourses(req: Request, res: Response) {
-  console.log('Retrieving courses data ...');
+export function getAllProducts(req: Request, res: Response) {
+  console.log('Retrieving products data ...');
 
   setTimeout(() => {
-    res.status(200).json({ payload: Object.values(COURSES) });
+    res.status(200).json({ payload: Object.values(PRODUCTS) });
   }, 1000);
 }
 
