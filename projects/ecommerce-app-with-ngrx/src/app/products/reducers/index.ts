@@ -5,18 +5,22 @@ import { ProductActions } from '../action-types';
 
 export const productsFeatureKey = 'products';
 
-export interface ProductsState extends EntityState<Product> {}
+export interface ProductsState extends EntityState<Product> {
+  allProductsLoaded: boolean;
+}
 
 export const adapter = createEntityAdapter<Product>({
   sortComparer: compareProducts,
 });
 
-export const initialProductsState = adapter.getInitialState();
+export const initialProductsState = adapter.getInitialState({
+  allProductsLoaded: false,
+});
 
 export const coursesReducer = createReducer(
   initialProductsState,
   on(ProductActions.allProductsLoaded, (state, action) =>
-    adapter.addAll(action.products, state)
+    adapter.addAll(action.products, { ...state, allProductsLoaded: true })
   )
 );
 
