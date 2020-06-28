@@ -8,12 +8,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { UserListComponent } from './user-list/user-list.component';
 
 @NgModule({
   declarations: [
     AddProductComponent,
     AdminCenterComponent,
     AdminNavbarComponent,
+    UserListComponent,
   ],
   imports: [
     CommonModule,

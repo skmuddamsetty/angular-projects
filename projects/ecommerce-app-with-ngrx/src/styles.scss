@@ -4,11 +4,14 @@ html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
 .content__container {
   max-width: 65rem;
   margin: 2rem auto;
+  padding: 0 1rem;
 }
