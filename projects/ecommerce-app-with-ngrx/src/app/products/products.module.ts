@@ -9,6 +9,8 @@ import { ProductCenterComponent } from './product-center/product-center.componen
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ProductsResolver } from './products.resolver';
+import { EffectsModule } from '@ngrx/effects';
+import { ProductEffects } from './products.effects';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { ProductsResolver } from './products.resolver';
     MatIconModule,
     MatToolbarModule,
     ProductsRoutingModule,
+    EffectsModule.forFeature([ProductEffects]),
   ],
   providers: [ProductsResolver],
 })
