@@ -8,6 +8,7 @@ import { ProductNavbarComponent } from './product-navbar/product-navbar.componen
 import { ProductCenterComponent } from './product-center/product-center.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { ProductsResolver } from './products.resolver';
 
 @NgModule({
   declarations: [
@@ -22,5 +23,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatToolbarModule,
     ProductsRoutingModule,
   ],
+  providers: [ProductsResolver],
 })
 export class ProductsModule {}
