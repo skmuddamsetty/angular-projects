@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminCenterComponent } from './admin-center/admin-center.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { UserResolver } from './user/user.resolver';
 
 const routes: Routes = [
   {
@@ -16,6 +17,9 @@ const routes: Routes = [
       {
         path: 'users-list',
         component: UserListComponent,
+        resolve: {
+          users: UserResolver,
+        },
       },
     ],
   },

@@ -9,6 +9,9 @@ import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { UserListComponent } from './user-list/user-list.component';
+import { StoreModule } from '@ngrx/store';
+import * as fromUser from './reducers';
+import { UserResolver } from './user/user.resolver';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,8 @@ import { UserListComponent } from './user-list/user-list.component';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    StoreModule.forFeature(fromUser.userFeatureKey, fromUser.usersReducer),
   ],
+  providers: [UserResolver],
 })
 export class AdminModule {}
