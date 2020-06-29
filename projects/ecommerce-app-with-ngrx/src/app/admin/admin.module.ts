@@ -12,6 +12,8 @@ import { UserListComponent } from './user-list/user-list.component';
 import { StoreModule } from '@ngrx/store';
 import * as fromUser from './reducers';
 import { UserResolver } from './user/user.resolver';
+import { EffectsModule } from '@ngrx/effects';
+import { UserEffects } from './user/user.effects';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { UserResolver } from './user/user.resolver';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    EffectsModule.forFeature([UserEffects]),
     StoreModule.forFeature(fromUser.userFeatureKey, fromUser.usersReducer),
   ],
   providers: [UserResolver],

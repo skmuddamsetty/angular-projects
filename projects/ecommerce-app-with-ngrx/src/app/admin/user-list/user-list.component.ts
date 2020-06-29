@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { Observable } from 'rxjs';
 import { User } from '../models/user.model';
+import { Store, select } from '@ngrx/store';
+import { AppState } from '../../reducers';
+import { selectAllUsers } from '../user/user.selectors';
 
 @Component({
   selector: 'app-user-list',
@@ -10,9 +13,9 @@ import { User } from '../models/user.model';
 })
 export class UserListComponent implements OnInit {
   users$: Observable<User[]>;
-  constructor(private userService: UserService) {}
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
-    this.users$ = this.userService.getAllUsers();
+    this.users$ = this.store.pipe(select(selectAllUsers));
   }
 }

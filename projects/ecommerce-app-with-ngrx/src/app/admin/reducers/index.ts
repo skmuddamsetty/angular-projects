@@ -11,7 +11,7 @@ import { EntityState, createEntityAdapter } from '@ngrx/entity';
 import { User } from '../models/user.model';
 import { UserActions } from '../user/action-types';
 
-export const userFeatureKey = 'user';
+export const userFeatureKey = 'users';
 
 export interface UsersState extends EntityState<User> {
   allUsersLoaded: boolean;
