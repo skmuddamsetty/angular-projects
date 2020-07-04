@@ -518,6 +518,7 @@
               "projects/my-portfolio/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/my-portfolio/src/styles.scss"
             ],
             "scripts": []
@@ -582,6 +583,7 @@
               "projects/my-portfolio/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/my-portfolio/src/styles.scss"
             ],
             "scripts": []
