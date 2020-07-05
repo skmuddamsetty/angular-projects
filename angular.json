@@ -606,6 +606,127 @@
           }
         }
       }
+    },
+    "password-generator": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/password-generator",
+      "sourceRoot": "projects/password-generator/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/password-generator",
+            "index": "projects/password-generator/src/index.html",
+            "main": "projects/password-generator/src/main.ts",
+            "polyfills": "projects/password-generator/src/polyfills.ts",
+            "tsConfig": "projects/password-generator/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/password-generator/src/favicon.ico",
+              "projects/password-generator/src/assets"
+            ],
+            "styles": [
+              "projects/password-generator/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/password-generator/src/environments/environment.ts",
+                  "with": "projects/password-generator/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "password-generator:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "password-generator:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "password-generator:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/password-generator/src/test.ts",
+            "polyfills": "projects/password-generator/src/polyfills.ts",
+            "tsConfig": "projects/password-generator/tsconfig.spec.json",
+            "karmaConfig": "projects/password-generator/karma.conf.js",
+            "assets": [
+              "projects/password-generator/src/favicon.ico",
+              "projects/password-generator/src/assets"
+            ],
+            "styles": [
+              "projects/password-generator/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/password-generator/tsconfig.app.json",
+              "projects/password-generator/tsconfig.spec.json",
+              "projects/password-generator/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/password-generator/e2e/protractor.conf.js",
+            "devServerTarget": "password-generator:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "password-generator:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "angular-material-app"
