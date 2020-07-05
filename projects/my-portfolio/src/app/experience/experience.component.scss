@@ -52,7 +52,12 @@ h2 {
 
 .section-experience {
   background-color: #f7f7f7;
-  padding: 20rem 10rem;
+  padding: 15rem 2rem;
   padding-bottom: 5rem;
+  @media (min-width: 768px) {
+    padding: 20rem 10rem;
+    padding-bottom: 5rem;
+  }
+
   margin-top: -20vh;
 }
