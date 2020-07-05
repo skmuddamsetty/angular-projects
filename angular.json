@@ -107,9 +107,7 @@
               "projects/angular-material-app/tsconfig.spec.json",
               "projects/angular-material-app/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -230,9 +228,7 @@
               "projects/reactive-angular-app/tsconfig.spec.json",
               "projects/reactive-angular-app/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -353,9 +349,7 @@
               "projects/ecommerce-app-with-ngrx/tsconfig.spec.json",
               "projects/ecommerce-app-with-ngrx/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -474,9 +468,7 @@
               "projects/angular-router-complete-guide/tsconfig.spec.json",
               "projects/angular-router-complete-guide/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -519,7 +511,8 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "projects/my-portfolio/src/styles.scss"
+              "projects/my-portfolio/src/styles.scss",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },
@@ -597,9 +590,7 @@
               "projects/my-portfolio/tsconfig.spec.json",
               "projects/my-portfolio/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
