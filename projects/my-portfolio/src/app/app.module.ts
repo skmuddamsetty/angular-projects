@@ -5,9 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { WorksComponent } from './works/works.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, WorksComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
