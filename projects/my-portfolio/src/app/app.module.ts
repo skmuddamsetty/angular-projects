@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { WorksComponent } from './works/works.component';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [AppComponent, WorksComponent],
@@ -14,6 +15,7 @@ import { WorksComponent } from './works/works.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSidenavModule,
+    MatTabsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
