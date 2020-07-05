@@ -16,3 +16,20 @@ h2 {
   background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
   background-size: cover;
 }
+
+.works-section {
+  background: linear-gradient(
+    to right bottom,
+    var(--color-primary),
+    var(--color-font)
+  );
+  padding: 5rem 10rem;
+  background-size: cover;
+  background-position: top;
+}
+
+.works-content {
+  background-color: var(--color-font);
+  padding: 3rem;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2);
+}
