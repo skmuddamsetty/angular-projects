@@ -1,0 +1,44 @@
+.timeline {
+  position: relative;
+}
+
+.timeline .timeline-container {
+  padding-left: 50px;
+  margin-bottom: 100px;
+  position: relative;
+  background-color: inherit;
+  width: 100%;
+}
+
+.timeline .timeline-container:after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  left: 0;
+  background-color: var(--color-primary);
+  top: 7px;
+  z-index: 1;
+}
+
+.timeline .content {
+  position: relative;
+}
+
+.timeline .content .time {
+  color: #999;
+  font-size: 14px;
+}
+
+.timeline span.line {
+  background: #222;
+}
+
+.timeline span.line {
+  position: absolute;
+  width: 1px;
+  background-color: #ececec;
+  top: 7px;
+  bottom: 0;
+  left: 4px;
+}
