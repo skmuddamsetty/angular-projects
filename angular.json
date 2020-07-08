@@ -848,6 +848,127 @@
           }
         }
       }
+    },
+    "typing-challenge": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/typing-challenge",
+      "sourceRoot": "projects/typing-challenge/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/typing-challenge",
+            "index": "projects/typing-challenge/src/index.html",
+            "main": "projects/typing-challenge/src/main.ts",
+            "polyfills": "projects/typing-challenge/src/polyfills.ts",
+            "tsConfig": "projects/typing-challenge/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/typing-challenge/src/favicon.ico",
+              "projects/typing-challenge/src/assets"
+            ],
+            "styles": [
+              "projects/typing-challenge/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/typing-challenge/src/environments/environment.ts",
+                  "with": "projects/typing-challenge/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "typing-challenge:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "typing-challenge:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "typing-challenge:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/typing-challenge/src/test.ts",
+            "polyfills": "projects/typing-challenge/src/polyfills.ts",
+            "tsConfig": "projects/typing-challenge/tsconfig.spec.json",
+            "karmaConfig": "projects/typing-challenge/karma.conf.js",
+            "assets": [
+              "projects/typing-challenge/src/favicon.ico",
+              "projects/typing-challenge/src/assets"
+            ],
+            "styles": [
+              "projects/typing-challenge/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/typing-challenge/tsconfig.app.json",
+              "projects/typing-challenge/tsconfig.spec.json",
+              "projects/typing-challenge/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/typing-challenge/e2e/protractor.conf.js",
+            "devServerTarget": "typing-challenge:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "typing-challenge:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "angular-material-app"
