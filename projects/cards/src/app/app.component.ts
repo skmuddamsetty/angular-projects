@@ -14,7 +14,17 @@ export class AppComponent {
       username: '@firstUser',
       content: 'This is content of first post',
     },
-    { title: 'Second Card' },
-    { title: 'Third Card' },
+    {
+      title: 'Second Card',
+      imageUrl: 'assets/biking.jpeg',
+      username: '@firstUser',
+      content: 'This is content of second post',
+    },
+    {
+      title: 'Third Card',
+      imageUrl: 'assets/mountain.jpeg',
+      username: '@firstUser',
+      content: 'This is content of third post',
+    },
   ];
 }
