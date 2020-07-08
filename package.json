@@ -31,8 +31,10 @@
     "@ngrx/schematics": "^9.2.0",
     "@ngrx/store": "^9.2.0",
     "@ngrx/store-devtools": "^9.2.0",
+    "@types/faker": "^4.1.12",
     "bootstrap": "^4.5.0",
     "bulma": "^0.9.0",
+    "faker": "^4.1.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
