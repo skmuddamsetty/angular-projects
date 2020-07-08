@@ -631,9 +631,7 @@
               "projects/password-generator/src/favicon.ico",
               "projects/password-generator/src/assets"
             ],
-            "styles": [
-              "projects/password-generator/src/styles.scss"
-            ],
+            "styles": ["projects/password-generator/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -695,9 +693,7 @@
               "projects/password-generator/src/favicon.ico",
               "projects/password-generator/src/assets"
             ],
-            "styles": [
-              "projects/password-generator/src/styles.scss"
-            ],
+            "styles": ["projects/password-generator/src/styles.scss"],
             "scripts": []
           }
         },
@@ -709,9 +705,7 @@
               "projects/password-generator/tsconfig.spec.json",
               "projects/password-generator/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -752,9 +746,7 @@
               "projects/cards/src/favicon.ico",
               "projects/cards/src/assets"
             ],
-            "styles": [
-              "projects/cards/src/styles.scss"
-            ],
+            "styles": ["projects/cards/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -816,9 +808,7 @@
               "projects/cards/src/favicon.ico",
               "projects/cards/src/assets"
             ],
-            "styles": [
-              "projects/cards/src/styles.scss"
-            ],
+            "styles": ["projects/cards/src/styles.scss"],
             "scripts": []
           }
         },
@@ -830,9 +820,7 @@
               "projects/cards/tsconfig.spec.json",
               "projects/cards/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -873,9 +861,7 @@
               "projects/typing-challenge/src/favicon.ico",
               "projects/typing-challenge/src/assets"
             ],
-            "styles": [
-              "projects/typing-challenge/src/styles.scss"
-            ],
+            "styles": ["projects/typing-challenge/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -937,9 +923,7 @@
               "projects/typing-challenge/src/favicon.ico",
               "projects/typing-challenge/src/assets"
             ],
-            "styles": [
-              "projects/typing-challenge/src/styles.scss"
-            ],
+            "styles": ["projects/typing-challenge/src/styles.scss"],
             "scripts": []
           }
         },
@@ -951,9 +935,7 @@
               "projects/typing-challenge/tsconfig.spec.json",
               "projects/typing-challenge/e2e/tsconfig.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         },
         "e2e": {
@@ -965,6 +947,121 @@
           "configurations": {
             "production": {
               "devServerTarget": "typing-challenge:serve:production"
+            }
+          }
+        }
+      }
+    },
+    "payment-page-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/payment-page-app",
+      "sourceRoot": "projects/payment-page-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/payment-page-app",
+            "index": "projects/payment-page-app/src/index.html",
+            "main": "projects/payment-page-app/src/main.ts",
+            "polyfills": "projects/payment-page-app/src/polyfills.ts",
+            "tsConfig": "projects/payment-page-app/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/payment-page-app/src/favicon.ico",
+              "projects/payment-page-app/src/assets"
+            ],
+            "styles": ["projects/payment-page-app/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/payment-page-app/src/environments/environment.ts",
+                  "with": "projects/payment-page-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "payment-page-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "payment-page-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "payment-page-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/payment-page-app/src/test.ts",
+            "polyfills": "projects/payment-page-app/src/polyfills.ts",
+            "tsConfig": "projects/payment-page-app/tsconfig.spec.json",
+            "karmaConfig": "projects/payment-page-app/karma.conf.js",
+            "assets": [
+              "projects/payment-page-app/src/favicon.ico",
+              "projects/payment-page-app/src/assets"
+            ],
+            "styles": ["projects/payment-page-app/src/styles.scss"],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/payment-page-app/tsconfig.app.json",
+              "projects/payment-page-app/tsconfig.spec.json",
+              "projects/payment-page-app/e2e/tsconfig.json"
+            ],
+            "exclude": ["**/node_modules/**"]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/payment-page-app/e2e/protractor.conf.js",
+            "devServerTarget": "payment-page-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "payment-page-app:serve:production"
             }
           }
         }
