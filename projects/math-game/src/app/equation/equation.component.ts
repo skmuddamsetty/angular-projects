@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-equation',
@@ -7,11 +7,22 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./equation.component.scss'],
 })
 export class EquationComponent implements OnInit {
-  mathForm = new FormGroup({
-    a: new FormControl(this.randomNumber()),
-    b: new FormControl(this.randomNumber()),
-    answer: new FormControl(''),
-  });
+  mathForm = new FormGroup(
+    {
+      a: new FormControl(this.randomNumber()),
+      b: new FormControl(this.randomNumber()),
+      answer: new FormControl(''),
+    },
+    [
+      (form: AbstractControl) => {
+        const { a, b, answer } = form.value;
+        if (a + b === parseInt(answer)) {
+          return null;
+        }
+        return { addition: true };
+      },
+    ]
+  );
   constructor() {}
 
   ngOnInit(): void {}
@@ -22,5 +33,9 @@ export class EquationComponent implements OnInit {
 
   get a() {
     return this.mathForm.value.a;
+  }
+
+  get b() {
+    return this.mathForm.value.b;
   }
 }
