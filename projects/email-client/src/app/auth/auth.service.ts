@@ -17,6 +17,15 @@ interface SignupResponse {
   username: string;
 }
 
+interface SigninResponse {
+  username: string;
+}
+
+interface SignInCredentials {
+  username: string;
+  password: string;
+}
+
 interface SignedInResponse {
   authenticated: boolean;
   username: string;
@@ -66,5 +75,15 @@ export class AuthService {
         this.signedIn$.next(false);
       })
     );
+  }
+
+  signIn(credentials: SignInCredentials): Observable<SigninResponse> {
+    return this.http
+      .post<SigninResponse>(`${this.rootUrl}/auth/signin`, credentials)
+      .pipe(
+        tap(() => {
+          this.signedIn$.next(true);
+        })
+      );
   }
 }
