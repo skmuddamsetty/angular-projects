@@ -17,7 +17,6 @@ import { InboxModule } from './inbox/inbox.module';
     AppRoutingModule,
     AuthModule,
     SharedModule,
-    InboxModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthHttpInterceptor, multi: true },
