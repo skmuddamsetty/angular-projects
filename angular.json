@@ -1665,6 +1665,127 @@
           }
         }
       }
+    },
+    "angular-testing-guide": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/angular-testing-guide",
+      "sourceRoot": "projects/angular-testing-guide/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/angular-testing-guide",
+            "index": "projects/angular-testing-guide/src/index.html",
+            "main": "projects/angular-testing-guide/src/main.ts",
+            "polyfills": "projects/angular-testing-guide/src/polyfills.ts",
+            "tsConfig": "projects/angular-testing-guide/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/angular-testing-guide/src/favicon.ico",
+              "projects/angular-testing-guide/src/assets"
+            ],
+            "styles": [
+              "projects/angular-testing-guide/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/angular-testing-guide/src/environments/environment.ts",
+                  "with": "projects/angular-testing-guide/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "angular-testing-guide:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "angular-testing-guide:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "angular-testing-guide:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/angular-testing-guide/src/test.ts",
+            "polyfills": "projects/angular-testing-guide/src/polyfills.ts",
+            "tsConfig": "projects/angular-testing-guide/tsconfig.spec.json",
+            "karmaConfig": "projects/angular-testing-guide/karma.conf.js",
+            "assets": [
+              "projects/angular-testing-guide/src/favicon.ico",
+              "projects/angular-testing-guide/src/assets"
+            ],
+            "styles": [
+              "projects/angular-testing-guide/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/angular-testing-guide/tsconfig.app.json",
+              "projects/angular-testing-guide/tsconfig.spec.json",
+              "projects/angular-testing-guide/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/angular-testing-guide/e2e/protractor.conf.js",
+            "devServerTarget": "angular-testing-guide:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "angular-testing-guide:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "angular-material-app"
