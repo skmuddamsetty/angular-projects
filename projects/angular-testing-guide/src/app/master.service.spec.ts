@@ -3,6 +3,20 @@ import { TestBed } from '@angular/core/testing';
 import { MasterService } from './master.service';
 import { ValueService } from './value.service';
 
+/*
+  The first test creates a ValueService with new and passes it to the MasterService constructor.
+
+  However, injecting the real service rarely works well as most dependent services are difficult to create and control.
+
+  Instead you can mock the dependency, use a dummy value, or create a spy on the pertinent service method.
+
+  Prefer spies as they are usually the easiest way to mock services.
+
+  These standard testing techniques are great for unit testing services in isolation.
+
+  However, you almost always inject services into application classes using Angular dependency injection and you should have tests that reflect that usage pattern. Angular testing utilities make it easy to investigate how injected services behave.
+*/
+
 describe('MasterService without Angular testing support', () => {
   let masterService: MasterService;
 
