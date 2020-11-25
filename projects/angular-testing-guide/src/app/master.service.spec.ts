@@ -4,6 +4,8 @@ import { MasterService } from './master.service';
 import { ValueService } from './value.service';
 
 /*
+  https://angular.io/guide/testing-services#services-with-dependencies
+  
   The first test creates a ValueService with new and passes it to the MasterService constructor.
 
   However, injecting the real service rarely works well as most dependent services are difficult to create and control.
