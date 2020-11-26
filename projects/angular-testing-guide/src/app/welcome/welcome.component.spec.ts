@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { UserService } from '../user.service';
 
 import { WelcomeComponent } from './welcome.component';
 
@@ -9,21 +10,38 @@ class MockUserService {
 
 describe('WelcomeComponent', () => {
   let component: WelcomeComponent;
-  let fixture: ComponentFixture<WelcomeComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [WelcomeComponent],
-    }).compileComponents();
-  }));
+  let userService: UserService;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WelcomeComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    TestBed.configureTestingModule({
+      // provide the component-under-test and dependent service
+      providers: [
+        WelcomeComponent,
+        { provide: UserService, useClass: MockUserService },
+      ],
+    });
+    // inject both the component and the dependent service.
+    component = TestBed.inject(WelcomeComponent);
+    userService = TestBed.inject(UserService);
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should not have welcome message after construction', () => {
+    expect(component.welcome).toBeUndefined();
+  });
+
+  it('should welcome logged in user after Angular calls ngOnInit', () => {
+    component.ngOnInit();
+    expect(component.welcome).toContain(userService.user.name);
+  });
+
+  it('should ask user to log in if not logged in after ngOnInit', () => {
+    userService.isLoggedIn = false;
+    component.ngOnInit();
+    expect(component.welcome).not.toContain(userService.user.name);
+    expect(component.welcome).toContain('log in');
   });
 });
