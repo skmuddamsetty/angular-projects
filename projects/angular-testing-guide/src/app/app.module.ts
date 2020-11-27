@@ -9,7 +9,11 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { BannerComponent } from './banner/banner.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { AboutComponent } from './about/about.component';
-import { TwainQuoteComponent } from './twain-quote/twain-quote.component';
+import { TwainComponent } from './twain-quote/twain-quote.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -20,13 +24,19 @@ import { TwainQuoteComponent } from './twain-quote/twain-quote.component';
     BannerComponent,
     HeroDetailComponent,
     AboutComponent,
-    TwainQuoteComponent
+    TwainComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+      dataEncapsulation: false,
+    }),
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
