@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { LightSwitchComponent } from './light-switch/light-switch.component';
 import { DashboardHeroComponent } from './dashboard-hero/dashboard-hero.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { BannerComponent } from './banner/banner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LightSwitchComponent,
     DashboardHeroComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    BannerComponent
   ],
   imports: [
     BrowserModule,
