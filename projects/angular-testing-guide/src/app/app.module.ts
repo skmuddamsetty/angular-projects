@@ -7,6 +7,7 @@ import { LightSwitchComponent } from './light-switch/light-switch.component';
 import { DashboardHeroComponent } from './dashboard-hero/dashboard-hero.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { BannerComponent } from './banner/banner.component';
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { BannerComponent } from './banner/banner.component';
     LightSwitchComponent,
     DashboardHeroComponent,
     WelcomeComponent,
-    BannerComponent
+    BannerComponent,
+    HeroDetailComponent
   ],
   imports: [
     BrowserModule,
