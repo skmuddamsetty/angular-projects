@@ -25,7 +25,12 @@ const routes: Routes = [
 
 @NgModule({
   // Registering the RouterModule.forRoot() using imports array makes the Router service available everywhere in the application.
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(
+      routes,
+      { enableTracing: true } // <-- debugging purposes only
+    ),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
