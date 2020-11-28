@@ -1,22 +1,32 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HeroesModule } from './heroes/heroes.module';
+
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+
 import { CrisisListComponent } from './crisis-list/crisis-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { HeroesModule } from './heroes/heroes.module';
-import { HeroListComponent } from './heroes/hero-list/hero-list.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CrisisListComponent,
-    HeroListComponent,
-    PageNotFoundComponent,
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HeroesModule,
+    AppRoutingModule,
+    HttpClientModule,
+    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+    // and returns simulated server responses.
+    // Remove it when a real server is ready to receive requests.
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+      dataEncapsulation: false,
+    }),
   ],
-  imports: [BrowserModule, AppRoutingModule, HeroesModule],
-  providers: [],
+  declarations: [AppComponent, CrisisListComponent, PageNotFoundComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
