@@ -13,6 +13,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { TabViewModule } from 'primeng/tabview';
 import { FormsModule } from '@angular/forms';
+import { PasswordModule } from 'primeng/password';
 
 @NgModule({
   declarations: [SignInComponent, SignOutComponent],
@@ -26,6 +27,7 @@ import { FormsModule } from '@angular/forms';
     InputTextareaModule,
     DropdownModule,
     FormsModule,
+    PasswordModule,
   ],
 })
 export class AuthModule {}

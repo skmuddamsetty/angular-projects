@@ -1,14 +1,29 @@
 <div class="card">
-  <h3>Login</h3>
+  <h3 class="s-margin">Login</h3>
   <div class="p-formgroup-inline">
     <div class="p-field">
-      <label for="firstname5" class="p-sr-only">Firstname</label>
-      <input id="firstname5" type="text" pInputText placeholder="Firstname" />
+      <span class="p-float-label">
+        <input
+          id="float-input"
+          type="text"
+          pInputText
+          autocomplete="off"
+          class="p-inputtext-lg"
+        />
+        <label for="float-input">Username</label>
+      </span>
     </div>
     <div class="p-field">
-      <label for="lastname5" class="p-sr-only">Lastname</label>
-      <input id="lastname5" type="text" pInputText placeholder="Lastname" />
+      <span class="p-float-label">
+        <input
+          id="float-input"
+          type="password"
+          pPassword
+          class="p-inputtext-lg"
+        />
+        <label for="float-input">Password</label>
+      </span>
     </div>
-    <button pButton type="button" label="Submit"></button>
+    <button pButton type="button" label="Submit" class="p-button-lg"></button>
   </div>
 </div>
